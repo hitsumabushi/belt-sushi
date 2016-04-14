@@ -1,0 +1,132 @@
+swagger: "2.0"
+info:
+  description: Hikyaku is a simple workflow system for automation
+  title: Hikyaku
+  version: 1.0.0
+schemes:
+- http
+consumes:
+- application/org.hitsumabushi.hikyaku.v1+json
+produces:
+- application/org.hitsumabushi.hikyaku.v1+json
+paths:
+  /:
+    get:
+      tags:
+        - suites
+      parameters:
+        - name: since
+          in: query
+          type: integer
+          format: int64
+        - name: limit
+          in: query
+          type: integer
+          format: int32
+          default: 20
+      responses:
+        200:
+          description: list all suites
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Suite'
+definitions:
+  Suite:
+    type: object
+    required:
+      - root
+      - end
+    properties:
+      id:
+        type: string
+        readOnly: true
+      state:
+        type: integer
+        format: int64
+      completed:
+        type: boolean
+      history:
+        type: array
+        items:
+          $ref: '#/definitions/Action'
+      root:
+        $ref: '#/definitions/Root'
+      step:
+        type: array
+        items:
+          $ref: '#/definitions/Step'
+      end:
+        $ref: '#/definitions/End'
+  Action:
+    type: object
+    properties:
+      person:
+        type: string
+      result:
+        type: string
+  Root:
+    type: object
+    required:
+      - next_steps
+      - assign
+    properties:
+      id:
+        type: string
+        readOnly: true
+      next_steps:
+        type: array
+        items:
+          type: string
+      #next_steps:
+      #  type: array
+      #  items:
+      #    $ref: '#/definitions/Step'
+      assign:
+        type: string
+  Step:
+    type: object
+    required:
+      - assign
+    properties:
+      id:
+        type: string
+        readOnly: true
+      next_steps:
+        type: array
+        items:
+          type: string
+          # $ref: '#/definitions/Step'
+      previous_steps:
+        type: array
+        items:
+          type: string
+          # $ref: '#/definitions/Step'
+      assign:
+        type: string
+  End:
+    type: object
+    required:
+      - previous_steps
+      - assign
+    properties:
+      id:
+        type: string
+        readOnly: true
+      previous_steps:
+        type: array
+        items:
+          type: string
+          # $ref: '#/definitions/Step'
+      assign:
+        type: string
+  Error:
+    type: object
+    required:
+      - message
+    properties:
+      code:
+        type: integer
+        format: int64
+      message:
+        type: string
