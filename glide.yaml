@@ -1,0 +1,13 @@
+package: github.com/hitsumabushi/hikyaku
+import:
+- package: github.com/go-swagger/go-swagger
+  subpackages:
+  - errors
+  - httpkit
+  - httpkit/middleware
+  - httpkit/validate
+  - spec
+  - strfmt
+  - swag
+- package: github.com/jessevdk/go-flags
+- package: github.com/tylerb/graceful

@@ -1,0 +1,47 @@
+hash: 9da1dbb6788300077fb49da2dbdad22134c818f72dfab0292ca3311d3a0520f6
+updated: 2016-04-15T03:18:43.42609632+09:00
+imports:
+- name: github.com/asaskevich/govalidator
+  version: 9699ab6b38bee2e02cd3fe8b99ecf67665395c96
+  repo: https://github.com/asaskevich/govalidator
+- name: github.com/go-swagger/go-swagger
+  version: d136058aee097c3d8c2720e663f40eb2334760c9
+  subpackages:
+  - errors
+  - httpkit
+  - httpkit/middleware
+  - httpkit/validate
+  - spec
+  - strfmt
+  - swag
+  - jsonpointer
+  - jsonreference
+  - httpkit/middleware/header
+  - httpkit/middleware/untyped
+  - internal/validate
+- name: github.com/gorilla/context
+  version: 1ea25387ff6f684839d82767c1733ff4d4d15d0a
+  repo: https://github.com/gorilla/context
+- name: github.com/jessevdk/go-flags
+  version: 6b9493b3cb60367edd942144879646604089e3f7
+- name: github.com/naoina/denco
+  version: 9af2ba0e24214bac003821f4a501b131b2e04c75
+  repo: https://github.com/naoina/denco
+- name: github.com/opennota/urlesc
+  version: 5fa9ff0392746aeae1c4b37fcc42c65afa7a9587
+  repo: https://github.com/opennota/urlesc
+- name: github.com/PuerkitoBio/purell
+  version: d69616f51cdfcd7514d6a380847a152dfc2a749d
+  repo: https://github.com/PuerkitoBio/purell
+- name: github.com/tylerb/graceful
+  version: 9a3d4236b03bb5d26f7951134d248f9d5510d599
+- name: golang.org/x/net
+  version: e7da8edaa52631091740908acaf2c2d4c9b3ce90
+  repo: https://go.googlesource.com/net
+  subpackages:
+  - context
+  - netutil
+- name: gopkg.in/yaml.v2
+  version: a83829b6f1293c91addabc89d0571c246397bbf4
+  repo: https://gopkg.in/yaml.v2
+devImports: []
