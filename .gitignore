@@ -22,3 +22,10 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+# ignore generated binary
+hikyaku
+main
+
+# this repo is not stable, so not contain 3rd party libraries yet.
+vendor
