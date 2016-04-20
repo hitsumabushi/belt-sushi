@@ -6,8 +6,10 @@ info:
 schemes:
 - http
 consumes:
+- application/json
 - application/org.hitsumabushi.hikyaku.v1+json
 produces:
+- application/json
 - application/org.hitsumabushi.hikyaku.v1+json
 paths:
   /:
