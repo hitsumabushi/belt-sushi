@@ -12,7 +12,7 @@ produces:
 - application/json
 - application/org.hitsumabushi.hikyaku.v1+json
 paths:
-  /:
+  /suites:
     get:
       tags:
         - suites
@@ -37,7 +37,58 @@ paths:
           description: generic error response
           schema:
             $ref: '#/definitions/Error'
-
+    post:
+      tags:
+        - suites
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: '#/definitions/Suite'
+      responses:
+        201:
+          description: Created
+          schema:
+            $ref: '#/definitions/Suite'
+        default:
+          description: error response
+          schema:
+            $ref: '#/definitions/Error'
+  /suites/{id}:
+    parameters:
+      - type: string
+        name: id
+        in: path
+        required: true
+    put:
+      tags:
+        - suites
+      operationId: updateOne
+      parameters:
+        - name: body
+          in: body
+          schema:
+            $ref: '#/definitions/Suite'
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Suite'
+        default:
+          description: error
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      tags:
+        - suites
+      operationId: destroyOne
+      responses:
+        204:
+          description: Deleted
+        default:
+          description: error
+          schema:
+            $ref: '#/definitions/Error'
 definitions:
   Suite:
     type: object
